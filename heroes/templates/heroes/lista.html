@@ -1,22 +1,26 @@
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de Heróis</title>
-</head>
-<body>
-    <h1>Lista de Heróis</h1>
-    <ul>
-        {% for heroi in herois %}
-            <li>
-                <strong>{{ heroi.codinome }}</strong>: {{ heroi.poder_principal }}
-                <br>
-                <small>Criado em: {{ heroi.criado_em }}</small>
-            </li>
-        {% empty %}
-            <li>Nenhum herói cadastrado.</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+
+{% extends 'base.html' %}
+
+{% block title %}Lista de Heróis{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Heróis cadastrados</h2>
+
+<div class="row">
+{% for hero in herois %}
+  <div class="col-md-4">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ hero.codinome }}</h5>
+        <p class="card-text">{{ hero.poder_principal }}</p>
+        <small class="text-muted">{{ hero.cidade }}</small>
+      </div>
+    </div>
+  </div>
+{% empty %}
+  <p>Nenhum herói encontrado.</p>
+{% endfor %}
+</div>
+{% endblock %}
+

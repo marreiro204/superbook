@@ -1,19 +1,23 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de Heróis</title>
-</head>
-<body>
-    <h1>Lista de Heróis</h1>
-    <ul>
-        {% for heroi in herois %}
-            <li>{{ heroi.codinome }} - {{ heroi.poder_principal }}</li>
-        {% empty %}
-            <li>Nenhum herói cadastrado.</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends "base.html" %}
 
-</html>
+{% block title %}Lista de Posts{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Posts</h1>
+
+<ul class="list-group">
+  {% for post in posts %}
+    <li class="list-group-item">
+      <div class="d-flex justify-content-between align-items-center">
+        <strong>{{ post.autor.codinome }}</strong>
+        <small class="text-muted">{{ post.criado_em|date:"d/m/Y H:i" }}</small>
+      </div>
+      <p class="mb-1">{{ post.mensagem }}</p>
+    </li>
+  {% empty %}
+    <li class="list-group-item text-center text-muted">
+      Nenhum post encontrado.
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}
