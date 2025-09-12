@@ -8,4 +8,5 @@ urlpatterns = [
     path('lista/', views.lista_posts, name='lista_posts'),
     path("cbv-lista/", views.PostListView.as_view(), name="cbv_lista_posts"),
     path("novo/", views.criar_post, name="criar_post"),
+    path("<int:pk>/", views.detalhe_post, name="post_detail"),
 ]

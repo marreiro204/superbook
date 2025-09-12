@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Detalhe do Post{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Post</h1>
+
+<!-- Post do usuário -->
+<div class="list-group mb-4">
+  <div class="list-group-item">
+    <div class="d-flex justify-content-between align-items-center">
+      <strong>{{ post.autor.codinome }}</strong>
+      <small class="text-muted">{{ post.criado_em|date:"d/m/Y H:i" }}</small>
+    </div>
+    <p class="mb-1">{{ post.mensagem }}</p>
+  </div>
+</div>
+
+<!-- Comentários -->
+<h3 class="mb-3">Comentários</h3>
+<ul class="list-group mb-4">
+  {% for comentario in comentarios %}
+    <li class="list-group-item">
+      <div class="d-flex justify-content-between align-items-center">
+        <strong>{{ comentario.autor|default:"Anônimo" }}</strong>
+        <small class="text-muted">{{ comentario.criado_em|date:"d/m/Y H:i" }}</small>
+      </div>
+      <p class="mb-0">{{ comentario.conteudo }}</p>
+    </li>
+  {% empty %}
+    <li class="list-group-item text-center text-muted">
+      Nenhum comentário ainda.
+    </li>
+  {% endfor %}
+</ul>
+
+<!-- Formulário de comentário -->
+<h4 class="mb-3">Adicionar Comentário</h4>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Comentar</button>
+</form>
+
+<a href="{% url 'lista_posts' %}" class="btn btn-link mt-3">Voltar para a lista de posts</a>
+
+{% endblock %}
+
