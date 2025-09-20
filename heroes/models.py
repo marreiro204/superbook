@@ -6,6 +6,7 @@ class Hero (models.Model):
     cidade = models.CharField(max_length=100)
     historia = models.TextField(blank=True, null=True)
     criado_em = models.DateTimeField(auto_now_add=True)
+    foto = models.ImageField(upload_to='herois/', blank=True, null=True)
 
     def __str__(self):
         return self.codinome

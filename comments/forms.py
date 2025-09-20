@@ -4,4 +4,5 @@ from .models import Comentario
 class ComentarioForm(forms.ModelForm):
     class Meta:
         model = Comentario
-        fields = ['autor','conteudo']  
+        fields = ['autor', 'conteudo']  # autor será um select de heróis
+

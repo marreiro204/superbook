@@ -8,8 +8,13 @@
 <!-- Post do usuário -->
 <div class="list-group mb-4">
   <div class="list-group-item">
-    <div class="d-flex justify-content-between align-items-center">
-      <strong>{{ post.autor.codinome }}</strong>
+    <div class="d-flex align-items-center justify-content-between mb-2">
+      <div class="d-flex align-items-center">
+        {% if post.autor.foto %}
+          <img src="{{ post.autor.foto.url }}" class="hero-avatar-post me-2" alt="{{ post.autor.codinome }}">
+        {% endif %}
+        <strong>{{ post.autor.codinome }}</strong>
+      </div>
       <small class="text-muted">{{ post.criado_em|date:"d/m/Y H:i" }}</small>
     </div>
     <p class="mb-1">{{ post.mensagem }}</p>
@@ -21,8 +26,13 @@
 <ul class="list-group mb-4">
   {% for comentario in comentarios %}
     <li class="list-group-item">
-      <div class="d-flex justify-content-between align-items-center">
-        <strong>{{ comentario.autor|default:"Anônimo" }}</strong>
+      <div class="d-flex align-items-center justify-content-between mb-1">
+        <div class="d-flex align-items-center">
+          {% if comentario.autor.foto %}
+            <img src="{{ comentario.autor.foto.url }}" class="hero-avatar-post me-2" alt="{{ comentario.autor.codinome }}">
+          {% endif %}
+          <strong>{{ comentario.autor.codinome }}</strong>
+        </div>
         <small class="text-muted">{{ comentario.criado_em|date:"d/m/Y H:i" }}</small>
       </div>
       <p class="mb-0">{{ comentario.conteudo }}</p>
@@ -45,4 +55,3 @@
 <a href="{% url 'lista_posts' %}" class="btn btn-link mt-3">Voltar para a lista de posts</a>
 
 {% endblock %}
-

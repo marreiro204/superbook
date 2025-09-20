@@ -1,0 +1,35 @@
+/* Container da logo + texto */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Imagem da logo */
+.logo-img {
+  width: 70px;   /* tamanho maior */
+  height: auto;  /* mantém proporção */
+}
+
+/* Texto ao lado da logo */
+.logo-text {
+  margin-left: 15px;   /* espaço entre logo e texto */
+  font-size: 1.6rem;   /* aumenta fonte */
+  font-weight: bold;   /* deixa mais destacado */
+  color: white;        /* mantém visível no navbar dark */
+}
+
+/* Avatar redondo no canto superior esquerdo do card */
+.hero-avatar {
+  width: 50px;            /* tamanho pequeno */
+  height: 50px;
+  border-radius: 50%;     /* deixa redondo */
+  object-fit: cover;      /* mantém proporção sem distorcer */
+}
+/* Avatar pequeno para posts */
+.hero-avatar-post {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;  /* deixa redondo */
+  object-fit: cover;
+}
+

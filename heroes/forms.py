@@ -11,5 +11,5 @@ class ContatoForm(forms.Form):
 class HeroForm(forms.ModelForm):
     class Meta:
         model = Hero
-        fields = ['codinome',  'poder_principal', 'cidade', 'historia']
+        fields = ['codinome',  'poder_principal', 'cidade', 'historia', 'foto']
 
