@@ -6,6 +6,7 @@ from .forms import PostForm
 from comments.models import Comentario
 from comments.forms import ComentarioForm
 
+
 from django.http import HttpResponse
 
 def index(request):
@@ -13,7 +14,7 @@ def index(request):
 
 
 def lista_posts(request):
-    posts = Post.objects.all().order_by("criado_em")  # busca todos os heróis do banco
+    posts = Post.objects.all().order_by("criado_em")  
     return render(request, "posts/lista_posts.html", {"posts": posts})
 
 def criar_post(request):

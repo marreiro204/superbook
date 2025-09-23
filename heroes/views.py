@@ -1,13 +1,13 @@
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Hero
+from .models import Hero, Villain
 from django.views.generic import ListView
 from .forms import ContatoForm
 from .forms import HeroForm
 
 def hello_heroes(request):
-    return HttpResponse("Bem-vindo ao módulo Heroes!")
+    return HttpResponse("Bem-vindo ao módulo Heróis!")
 
 def lista_herois(request):
     herois = Hero.objects.all()  # busca todos os heróis do banco
