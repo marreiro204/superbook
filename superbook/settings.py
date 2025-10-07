@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'heroes',
     'posts',
     'comments',
+    'villain',
 ]
 
 MIDDLEWARE = [

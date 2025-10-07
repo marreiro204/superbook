@@ -24,6 +24,7 @@ urlpatterns = [
     path('heroes/', include('heroes.urls')),  # rotas do app heroes
     path('posts/', include('posts.urls')),    # rotas do app posts
     path("accounts/", include("django.contrib.auth.urls")),
+    path('villain/', include('villain.urls')),
 ]
 
 if settings.DEBUG:

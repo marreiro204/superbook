@@ -1,7 +1,7 @@
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Hero, Villain
+from .models import Hero
 from django.views.generic import ListView
 from .forms import ContatoForm
 from .forms import HeroForm

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Hero, Villain
+from .models import Hero
 
 class ContatoForm(forms.Form):
     nome = forms.CharField(max_length=100, required=True, label="Seu nome")
